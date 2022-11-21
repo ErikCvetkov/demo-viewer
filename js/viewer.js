@@ -60,6 +60,7 @@ $(document).ready(function() {
     var y = images.xray.naturalHeight;
     var x = images.xray.naturalWidth;
     // ------------------- IMAGE ON CENTER ----------------------
+    xray.cache();
     xray.offsetX(x/2);
     xray.offsetY(y/2);
     xray.x(stage.width()/2);
@@ -71,21 +72,21 @@ $(document).ready(function() {
     stage.add(layer3);  
     //-------------------BRIGHTNESS------------------------------
     var sliderBrightness = document.getElementById('brightnessControll');
-    sliderBrightness.oninput = function () {
+    sliderBrightness.oninput = function (event) {
       if (sliderBrightness.value > 1 || sliderBrightness.value < -1 ){
         return;
       } else {
-        xray.brightness(parseFloat(sliderBrightness.value));
+        xray.brightness(Number(event.target.value));
         layer.batchDraw();
       }
     };
     //------------------------CONTRAST--------------------------------------
     var contrastControll = document.getElementById('contrastControll');
-    contrastControll.oninput = function () {
+    contrastControll.oninput = function (event) {
       if (contrastControll.value > 100 || contrastControll.value < -100 ){
         return;
       } else {
-        xray.contrast(parseFloat(contrastControll.value));
+        xray.contrast(Number(event.target.value));
         layer.batchDraw();
       }
     };
