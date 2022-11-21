@@ -1,0 +1,144 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>viewer demo version</title>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fontawesome/css/all.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.jpeg">
+    <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</head>
+
+<body id="viewer">
+    <div class="container-fluid flex01">
+        <div class="row p-2 border-bottom" id="instruments">
+            <div class="d-flex align-items-center justify-content-center" style="width: auto;">
+                Mouse functions:
+            </div>
+            <div class="col-2 functions">
+                <div class="d-flex justify-content-between border-right">
+                    <div>
+                        <button type="button" name="button" class="btn btnViewer"><i class="fas fa-search"></i></button>
+                        <div class="position-absolute tool">
+                            <input type="range" class="form-control-range slider" id="scaleControll" min="0.5" max="3"
+                                step="0.1" value="1">
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" name="button" class="btn btnViewer" id="btnViewer"><i
+                                class="fas fa-adjust"></i></button>
+                        <div class="position-absolute tool">
+                            <input type="range" class="form-control-range slider" id="contrastControll" min="-100"
+                                max="100" step="1" value="0">
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" name="button" class="btn btnViewer">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                        <div class="position-absolute tool">
+                            <input type="range" class="form-control-range slider" id="brightnessControll" min=-1 max="1"
+                                step="0.1" value="0">
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" name="button" class="btn btnViewer"><i
+                                class="fas fa-sync-alt"></i></button>
+                        <div class="position-absolute tool">
+                            <input type="range" class="form-control-range slider" id="rotationControll" min="0"
+                                max="360" step="1" value="0">
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" name="button" class="btn btnViewer" id="btnMove"><i
+                                class="fas fa-arrows-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-center" style="width: auto;">
+                Measurements:
+            </div>
+            <div class="col-6">
+                <div class="d-flex">
+                    <button type="button" class="btn" id="btnRuler"><i class="fas fa-ruler"></i></button>
+                    <button type="button" class="btn" id="btnAngle"><i class="fas fa-ruler-combined"></i></button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="container-fluid flex11">
+        <div class="row" id="viewerBox">
+            <div id="viewerPlace" class="col-4 border-right">
+                <div class="row px-3 mt-2">
+                    <div class="col">
+                        John Doe
+                    </div>
+                </div>
+                <div class="row px-3 mt-2">
+                    <div class="col">
+                        Information about medical examination
+                    </div>
+                </div>
+                <div class="row px-3 mt-2">
+                    <div class="col bold">
+                        Information about patient
+                    </div>
+                </div>
+                <div class="row px-3 mt-2">
+                    <div class="col">
+                        Region: Latvia
+                    </div>
+                </div>
+                <div class="row px-3 mt-2">
+                    <div class="col">
+                        Patient uses medicaments: No
+                    </div>
+                </div>
+                <form method="post">
+                    <div class="row px-3 mt-4">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col bold">
+                                    Add medical verdict:
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <textarea class="form-control" rows="10" name="medical_verdict">
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col"><button type="submit" class="btn btn-primary">Submit</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-8" id="container">
+            </div>
+        </div>
+    </div>
+    <script>
+        var sources = {
+            xray: 'img/xray.jpeg'
+        };
+        var pixel_spacing_x = 1;
+        var pixel_spacing_y = 1;
+        var data_for_watermark = 'John Doe' + ', ' + '123456-78910' + ', ' + 'nr. 77754' + '\n\nSērija: ' + '67565';
+    </script>
+    <script src="js/konva.js"></script>
+    <script src="js/viewer.js"></script>
+</body>
+
+</html>
